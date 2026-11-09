@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dictée n° 3 et synthèse du texte</title>
+<style>
+
+:root{--prune:#8C1E70;--prune-fonce:#5E1349;--prune-clair:#F4E6EE;--accent:#C77BAA;
+ --vert:#283C28;--gris:#3C3C3C;--gris-moyen:#8A7A85;--filet:#E8DCE5;--creme:#FAF6F8;
+ --ok:#2F7A4F;--ko:#B23B3B;--amb:#B5852A;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--creme);color:var(--gris);
+ font-family:"Nunito","Segoe UI",Helvetica,Arial,sans-serif;font-size:16px;line-height:1.62}
+.wrap{max-width:900px;margin:0 auto;padding:0 18px 60px}
+header.bandeau{background:var(--prune-fonce);color:#fff;padding:18px 0;border-bottom:4px solid var(--accent)}
+header.bandeau .wrap{padding-bottom:0}
+.chapitre{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:#EAD3E3}
+.chapitre span{color:var(--accent);margin:0 6px}
+h1{font-family:Georgia,"Times New Roman",serif;font-size:27px;line-height:1.25;margin:8px 0 4px;color:#fff}
+.sous{color:#EAD3E3;font-size:14.5px;margin:0}
+h2{font-family:Georgia,"Times New Roman",serif;font-size:20px;color:var(--prune-fonce);
+ margin:34px 0 0;padding-bottom:8px;border-bottom:2px solid var(--filet)}
+h2 .num{color:var(--accent);margin-right:8px}
+h3{font-size:15px;color:var(--vert);margin:20px 0 8px;letter-spacing:.02em}
+.carte{background:#fff;border:1px solid var(--filet);border-radius:10px;padding:20px 22px;margin:18px 0;
+ box-shadow:0 1px 2px rgba(94,19,73,.05)}
+.enc{background:var(--prune-clair);border-left:5px solid var(--prune);padding:14px 18px;
+ border-radius:0 8px 8px 0;margin:18px 0;font-size:15.2px}
+.enc .t{display:block;font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;
+ font-weight:800;color:var(--prune-fonce);margin-bottom:6px}
+.enc.al{background:#FBF4F4;border-left-color:var(--ko)}.enc.al .t{color:var(--ko)}
+.enc.ci{background:#FCF8F0;border-left-color:var(--amb)}.enc.ci .t{color:#8A6418}
+.situ{background:#FCF9FB;border:1px dashed var(--filet);border-radius:8px;padding:16px 18px;margin:16px 0;font-size:15.2px}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
+.duo>div{background:#fff;border:1px solid var(--filet);border-radius:9px;padding:15px 17px;font-size:14.8px}
+.duo .h{font-weight:800;color:var(--prune-fonce);margin-bottom:7px;font-size:14.5px}
+.tri{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}
+.tri>div{background:#fff;border:1px solid var(--filet);border-radius:9px;padding:14px 15px;font-size:14.3px}
+.quad{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0}
+.quad>div{background:#fff;border:1px solid var(--filet);border-radius:9px;padding:12px 13px;font-size:13.6px}
+.quad .h{font-weight:800;color:var(--prune-fonce);margin-bottom:6px;font-size:13px;
+ text-transform:uppercase;letter-spacing:.04em}
+.tri .h{font-weight:800;color:var(--prune-fonce);margin-bottom:6px;font-size:13.5px;
+ text-transform:uppercase;letter-spacing:.05em}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14.8px;background:#fff}
+th,td{border:1px solid var(--filet);padding:9px 12px;text-align:left}
+thead th{background:var(--prune-clair);color:var(--prune-fonce);font-size:13.5px}
+tbody th{font-weight:600;color:var(--gris)}
+td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.tot td,tr.tot th{background:#FBF3F8;font-weight:800;color:var(--prune-fonce)}
+.dl{display:inline-flex;align-items:center;gap:9px;background:var(--prune);color:#fff;text-decoration:none;
+ padding:11px 20px;border-radius:8px;font-weight:700;font-size:15px;margin:20px 0 4px}
+.dl:hover{background:var(--prune-fonce)}
+ol.q{padding-left:0;list-style:none;counter-reset:q}
+ol.q>li{margin:16px 0;padding-left:38px;position:relative}
+ol.q>li::before{counter-increment:q;content:counter(q);position:absolute;left:0;top:1px;
+ width:26px;height:26px;border-radius:50%;background:var(--prune-clair);color:var(--prune-fonce);
+ font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
+b,strong{color:var(--vert)}
+footer{text-align:center;font-size:12.5px;color:var(--gris-moyen);padding:26px 18px 12px;
+ border-top:1px solid var(--filet);margin-top:44px}
+@media(max-width:860px){.quad{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.duo,.tri,.quad{grid-template-columns:1fr}h1{font-size:22px}}
+@media print{body{background:#fff}.dl{display:none}header.bandeau{background:#5E1349 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+
+
+.champ{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:11px 0;
+ padding:11px 13px;background:#FCF9FB;border:1px solid var(--filet);border-radius:9px}
+.champ .lb{flex:1 1 340px;font-size:15px}
+.champ .pts{font-size:12px;color:var(--gris-moyen);white-space:nowrap}
+input.num,select.ch{font-family:inherit;font-size:15px;padding:9px 12px;border:1.5px solid var(--filet);
+ border-radius:8px;background:#fff;color:var(--gris);min-width:210px}
+input.num{min-width:150px;text-align:right;font-variant-numeric:tabular-nums}
+input.num:focus,select.ch:focus{outline:none;border-color:var(--prune)}
+input.num:disabled,select.ch:disabled{background:#F1EBEF;color:var(--gris-moyen);cursor:not-allowed}
+.champ.just{border-color:#BFE0CC;background:#F3FAF5}
+.champ.faux{border-color:#EFC9C9;background:#FDF5F5}
+.verdict{font-weight:800;font-size:13px;white-space:nowrap}
+.verdict.ok{color:var(--ok)}.verdict.ko{color:var(--ko)}
+.btn{display:inline-flex;align-items:center;gap:9px;background:var(--prune);color:#fff;border:0;
+ padding:12px 22px;border-radius:8px;font-family:inherit;font-weight:800;font-size:15px;cursor:pointer}
+.btn:hover{background:var(--prune-fonce)}
+.btn:disabled{background:#C9B7C3;cursor:not-allowed}
+.btn.sec{background:#fff;color:var(--prune-fonce);border:1.5px solid var(--filet)}
+.btn.sec:hover{background:var(--prune-clair)}
+.barre{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:16px}
+.fige{display:inline-block;font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;font-weight:800;
+ color:var(--prune-fonce);background:var(--prune-clair);padding:6px 11px;border-radius:20px}
+.corr{display:none;margin-top:16px}.corr.on{display:block}
+.score{display:flex;flex-wrap:wrap;gap:18px;align-items:baseline;
+ background:var(--prune-fonce);color:#fff;border-radius:10px;padding:18px 22px;margin:18px 0}
+.score .gros{font-family:Georgia,serif;font-size:32px;font-weight:700;color:#fff}
+.score .lib{font-size:14px;color:#EAD3E3}
+.opt{display:block;background:#fff;border:1.5px solid var(--filet);border-radius:9px;
+ padding:11px 14px;margin:8px 0;font-size:15px;cursor:pointer}
+.opt:hover{border-color:var(--accent)}
+.opt input{margin-right:10px}
+.opt.sel{border-color:var(--prune);background:var(--prune-clair)}
+.opt.bonne{border-color:var(--ok);background:#F3FAF5}
+.opt.mauvaise{border-color:var(--ko);background:#FDF5F5}
+.opt.verrou{cursor:not-allowed}
+.qbloc{background:#fff;border:1px solid var(--filet);border-radius:10px;padding:18px 20px;margin:16px 0}
+.qnum{font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;font-weight:800;color:var(--accent)}
+.qth{display:inline-block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:800;
+ color:var(--prune-fonce);background:var(--prune-clair);padding:4px 9px;border-radius:20px;margin-left:8px}
+.qen{font-size:16.5px;font-weight:700;color:var(--vert);margin:8px 0 4px}
+.multi{font-size:12.5px;color:var(--gris-moyen);font-style:italic;margin-bottom:6px}
+.prog{height:8px;background:var(--filet);border-radius:20px;overflow:hidden;margin:14px 0 4px}
+.prog i{display:block;height:100%;background:var(--prune);width:0;transition:width .25s}
+.sticky{position:sticky;bottom:0;background:var(--creme);padding:12px 0;border-top:1px solid var(--filet)}
+@media print{.btn,.sticky{display:none}}
+
+
+.phrase{flex:1 1 360px;font-size:15.5px}
+.phrase .trou{display:inline-block;min-width:70px;border-bottom:2px dotted var(--accent);text-align:center;color:var(--accent);font-weight:800}
+select.ch{min-width:170px}
+
+textarea.redac{width:100%;font-family:inherit;font-size:15.5px;line-height:1.7;padding:12px 14px;border:1.5px solid var(--filet);border-radius:9px;background:#fff;color:var(--gris);resize:vertical}
+textarea.redac:focus{outline:none;border-color:var(--prune)}
+textarea.redac:disabled{background:#F1EBEF;color:var(--gris-moyen)}
+.cpt{font-size:12.5px;color:var(--gris-moyen);margin-top:5px}
+.pre{white-space:pre-line}
+.qbloc .situ{margin:10px 0 6px}
+.expl{font-size:14.5px;margin-top:10px}
+audio{width:100%;margin:10px 0}
+.audio-ko{display:none}.audio-ko.on{display:block}
+.diff{background:#fff;border:1px solid var(--filet);border-radius:9px;padding:14px 16px;font-size:15.5px;line-height:1.9;white-space:pre-line}
+.diff .ko{background:#FDECEC;border-bottom:2px solid var(--ko);border-radius:3px;padding:0 2px}
+.diff .ko small{color:var(--ok);font-weight:800;margin-left:3px}
+.diff .manque{color:var(--ko);font-weight:800}
+.mots{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}.mots span{background:var(--prune-clair);color:var(--prune-fonce);border-radius:20px;padding:3px 10px;font-size:13.5px;font-weight:700}
+</style></head>
+<body>
+<header class="bandeau"><div class="wrap">
+ <div class="chapitre">Écrits professionnels 3 <span>/</span> Module 2</div><h1>Dictée n° 3 et synthèse du texte</h1><p class="sous">Dictée notée sur 20, puis synthèse du texte</p>
+</div></header>
+<div class="wrap">
+
+<div class="carte">
+<div class="enc"><span class="t">CE QUE VOUS ALLEZ FAIRE</span>Deux temps. <b>La dictée</b> : écoutez le texte et écrivez-le dans le cadre — vous pouvez mettre en pause et réécouter. À la validation, votre texte est figé et comparé mot à mot au texte exact. <b>La synthèse</b> : résumez ensuite le texte, puis comparez avec la synthèse modèle. Aucun résultat n'est transmis : c'est un entraînement.</div>
+<div class="enc ci"><span class="t">CONSEIL</span>Écoutez une première fois en entier sans écrire. Soyez attentif aux participes passés : ils sont nombreux.</div>
+</div>
+<div class="carte">
+<div class="enc ci"><span class="t">AVANT D'ÉCRIRE</span>Écrivez les nombres <b>en chiffres</b>. Aucun correcteur ne vous aide : relisez-vous. Anglicismes et noms propres :
+<div class="mots"><span>cross-canal</span><span>Spartoo</span><span>antispam</span><span>online</span><span>offline</span><span>pure players</span><span>QR codes</span><span>Big Data</span></div></div>
+</div>
+
+<h2><span class="num">1 ·</span>La dictée</h2>
+<div class="carte">
+<audio id="audio" controls preload="metadata" controlsList="nodownload"><source src="https://thle2.github.io/ecrits_pro_3_m2_dictee/ecrits_pro_3_m2_dictee.mp4" type="audio/mp4"></audio>
+<div class="enc al audio-ko" id="audioKo"><span class="t">FICHIER AUDIO INTROUVABLE</span>L'enregistrement de la dictée ne se charge pas. Prévenez votre formatrice.</div>
+<textarea class="redac" id="saisie" rows="14" spellcheck="false" autocomplete="off" placeholder="Écrivez la dictée ici…"></textarea>
+<div class="barre"><button class="btn" id="valD">Valider ma dictée</button><span id="figeD"></span></div>
+<div class="corr" id="corrD"></div>
+</div>
+
+<h2><span class="num">2 ·</span>La synthèse</h2>
+<div class="carte">
+<div class="situ"><b>Consigne.</b> Synthétisez le texte de la dictée en <b>80 à 100 mots</b>. Commencez par « L'article souligne » ou « L'article évoque ». Le texte exact s'affiche dans la correction de la dictée, une fois celle-ci validée.</div>
+<textarea class="redac" id="synth" rows="7" spellcheck="false" placeholder="Votre synthèse…"></textarea>
+<div class="cpt" id="cptS">0 mot</div>
+<div class="barre"><button class="btn" id="valS">Valider ma synthèse</button><span id="figeS"></span></div>
+<div class="corr" id="corrS"></div>
+</div>
+
+<div class="barre sticky">
+ <button class="btn sec" id="rejouer">↻ Recommencer</button>
+ <span style="font-size:13px;color:var(--gris-moyen)">Le rejeu efface la dictée et la synthèse.</span>
+</div>
+<footer>TMK Performances - N° Siret : 49841924100027 - Code NAF : 8559A</footer>
+</div>
+<script>
+['paste','drop'].forEach(ev=>document.addEventListener(ev,e=>{ if(e.target.tagName==='TEXTAREA') e.preventDefault(); }));
+const TEXTE = "Comment consomme-t-on aujourd'hui ?\n\nLa pandémie de 2020 a-t-elle remodelé nos habitudes d'achat ? Certes, nous avons d'abord été contraints d'acheter par nécessité, au vu de la fermeture des magasins physiques. La vente en ligne s'est poursuivie dans de nombreux domaines et le phénomène devrait s'étendre.\n\nL'explosion des ventes en ligne n'est pas nouvelle. Celles-ci se sont envolées ces dernières années et ont généré des sommes colossales. Les ventes réalisées via les smartphones ont consolidé le cross-canal : les entreprises ont multiplié les canaux et facilité les achats à partir des applications. Par ailleurs, des pure players tels que Spartoo ont souhaité ouvrir des magasins physiques dans l'Hexagone, afin d'exposer leurs produits.\n\nQu'en est-il de la publicité depuis quelques années ? De nombreux pure players ont envoyé des magazines ou catalogues papier à leurs fidèles clients. En effet, un e-mail publicitaire peut en un clic rejoindre la corbeille sans avoir atteint sa cible (s'il a résisté à l'antispam), tandis que le magazine papier arrive dans la boîte aux lettres et intègre le lieu de vie du consommateur. Des géants du web ont ainsi adressé à des prospects des catalogues agrémentés de QR codes renvoyant vers le site : les campagnes de cross-canal se sont révélées très efficaces. La jonction du papier a redonné de la matérialité à la relation client.\n\nEn outre, les campagnes publicitaires et la personnalisation des supports commerciaux ont été affinées par l'analyse du Big Data. Grâce aux données de navigation, les entreprises sont parvenues non seulement à transmettre des contenus adaptés à chaque consommateur, mais aussi à choisir le canal le plus opportun parmi les suivants : SMS, e-mail, support papier. Combiner les canaux online et offline serait donc un atout majeur pour augmenter les ventes et la fidélisation.\n\nQuoi qu'il en soit, la période de confinement a profité aux pure players. Les magasins physiques devront quant à eux rendre leurs sites plus attractifs et revoir leur stratégie pour s'adapter à de nouveaux modes d'achat.";
+const VARIANTES = [
+ [
+  "leurs fidèles clients",
+  "leur fidèle client"
+ ],
+ [
+  "aux pure players",
+  "au pure player"
+ ],
+ [
+  "leurs sites plus attractifs",
+  "leur site plus attractif"
+ ]
+];
+const PAR_FAUTE = 1;
+const VIGILANCE = "Points de vigilance — les participes passés : nous avons été contraints (accord avec « nous ») · la vente s'est poursuivie · celles-ci se sont envolées · ont généré, consolidé, multiplié, facilité, souhaité, envoyé, adressé, redonné, profité (auxiliaire avoir, COD placé après ou absent : pas d'accord) · catalogues agrémentés · les campagnes se sont révélées · les campagnes et la personnalisation ont été affinées (féminin pluriel) · les entreprises sont parvenues.\nTrois passages acceptent le singulier comme le pluriel, qui se prononcent de la même façon : « à leurs fidèles clients », « aux pure players », « leurs sites plus attractifs ».";
+const MODELE = "L'article souligne que la pandémie de 2020 a accéléré la vente en ligne, déjà en plein essor grâce aux smartphones et aux applications. Paradoxalement, des pure players ouvrent des magasins physiques et renouent avec le catalogue papier, plus durable qu'un e-mail publicitaire. Associé aux QR codes, ce support redonne de la matérialité à la relation client. Grâce au Big Data, les entreprises personnalisent leurs contenus et choisissent le canal le plus adapté. L'article conclut que combiner canaux en ligne et hors ligne est un atout majeur, et que les magasins physiques doivent adapter leur stratégie.";
+const COMMENT = "Une bonne synthèse reprend les idées principales dans l'ordre du texte, sans exemple ni chiffre secondaire, avec vos propres mots, et respecte la longueur demandée.";
+
+const audio = document.getElementById('audio');
+audio.addEventListener('error',()=>document.getElementById('audioKo').classList.add('on'),true);
+audio.querySelector('source').addEventListener('error',()=>document.getElementById('audioKo').classList.add('on'));
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+function mots(s){ return s.replace(/[’]/g,"'").replace(/\n+/g,' ¶ ').replace(/([.,;:!?«»()])/g,' $1 ').split(/\s+/).filter(Boolean); }
+function aligner(a,b){
+ const n=a.length,m=b.length,D=[];
+ for(let i=0;i<=n;i++){D.push(new Array(m+1).fill(0));D[i][0]=i;}
+ for(let j=0;j<=m;j++)D[0][j]=j;
+ for(let i=1;i<=n;i++)for(let j=1;j<=m;j++)
+  D[i][j]=Math.min(D[i-1][j]+1,D[i][j-1]+1,D[i-1][j-1]+(a[i-1]===b[j-1]?0:1));
+ const out=[];let i=n,j=m;
+ while(i>0||j>0){
+  if(i>0&&j>0&&D[i][j]===D[i-1][j-1]+(a[i-1]===b[j-1]?0:1)){out.unshift([a[i-1],b[j-1]]);i--;j--;}
+  else if(j>0&&D[i][j]===D[i][j-1]+1){out.unshift([null,b[j-1]]);j--;}
+  else{out.unshift([a[i-1],null]);i--;}
+ }
+ return out;
+}
+document.getElementById('valD').addEventListener('click',()=>{
+ const t=document.getElementById('saisie');
+ if(t.value.trim().split(/\s+/).length<60){ alert("Écrivez la dictée en entier avant de valider."); return; }
+ // les passages qui acceptent le singulier comme le pluriel ne comptent pas comme faute
+ let saisie = t.value.replace(/[’]/g,"'");
+ VARIANTES.forEach(([ref,alt])=>{ saisie = saisie.split(alt).join(ref); });
+ const al=aligner(mots(saisie).filter(w=>w!=='¶'),mots(TEXTE).filter(w=>w!=='¶'));
+ let err=0;
+ const h=al.map(([x,y])=>{
+  if(x===y) return esc(y);
+  err++;
+  if(x===null) return '<span class="manque">['+esc(y)+']</span>';
+  if(y===null) return '<span class="ko"><s>'+esc(x)+'</s></span>';
+  return '<span class="ko">'+esc(x)+'<small>→ '+esc(y)+'</small></span>';
+ }).join(' ').replace(/ ([.,)])/g,'$1').replace(/\( /g,'(');
+ const note = Math.max(0, 20 - err*PAR_FAUTE);
+ t.disabled=true;
+ const b=document.getElementById('valD'); b.textContent='Dictée validée'; b.disabled=true;
+ document.getElementById('figeD').innerHTML='<span class="fige">Réponse figée</span>';
+ const c=document.getElementById('corrD'); c.className='corr on';
+ c.innerHTML=`<div class="score"><span class="gros">${note} / 20</span><span class="lib">${err} ${err>1?'écarts relevés':'écart relevé'} avec le texte exact — un point retiré par faute (mot erroné, manquant ou en trop, accent et ponctuation compris)</span></div>
+ <div class="diff">${h}</div>
+ <p style="font-size:13px;color:var(--gris-moyen)">En rouge : votre mot, suivi de la forme attendue. Entre crochets : un mot oublié.</p>
+ <div class="enc"><span class="t">LE TEXTE EXACT</span><div class="pre">${esc(TEXTE)}</div></div>
+ <div class="enc ci"><span class="t">LES POINTS DE VIGILANCE DE CETTE DICTÉE</span><div class="pre">${esc(VIGILANCE)}</div></div>`;
+});
+const sy=document.getElementById('synth');
+sy.addEventListener('input',()=>{ const n=sy.value.trim()?sy.value.trim().split(/\s+/).length:0; document.getElementById('cptS').textContent=n+(n>1?' mots':' mot')+(n<80?' — visez 80 à 100':n>100?' — au-delà de 100':' — longueur respectée'); });
+document.getElementById('valS').addEventListener('click',()=>{
+ if(sy.value.trim().split(/\s+/).length<40){ alert("Rédigez votre synthèse avant de valider."); return; }
+ sy.disabled=true;
+ const b=document.getElementById('valS'); b.textContent='Synthèse validée'; b.disabled=true;
+ document.getElementById('figeS').innerHTML='<span class="fige">Réponse figée</span>';
+ const c=document.getElementById('corrS'); c.className='corr on';
+ c.innerHTML=`<div class="enc"><span class="t">UNE SYNTHÈSE MODÈLE</span>${esc(MODELE)}</div>
+ <div class="enc ci"><span class="t">COMPAREZ AVEC VOTRE SYNTHÈSE</span>${esc(COMMENT)}</div>`;
+});
+document.getElementById('rejouer').addEventListener('click',()=>location.reload());
+</script>
+</body></html>
